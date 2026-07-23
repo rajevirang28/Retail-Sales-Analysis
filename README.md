@@ -6,21 +6,12 @@
 
 # Dataset
 
-This folder contains the cleaned dataset used for the Retail Sales Analysis project.
+The original dataset (Online Retail II) is larger than GitHub's upload limit.
 
-## Files
-
-- **retail_sales.csv** – Cleaned retail sales dataset
-- **retail_sales.xlsx** – Excel version of the cleaned dataset
-- **data_dictionary.xlsx** – Description of all dataset columns
-
-## Original Data Source
-
-The dataset is based on the **Online Retail II** dataset from the UCI Machine Learning Repository:
-
+You can download it from:
 https://archive.ics.uci.edu/dataset/502/online+retail+ii
 
-The original data has been cleaned and transformed for analysis in SQL, Python, Excel, and Power BI.
+This project uses the cleaned version generated during the analysis.
 
 ## Technology Used
 
