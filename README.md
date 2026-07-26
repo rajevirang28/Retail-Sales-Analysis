@@ -84,7 +84,7 @@ Business Report
 ---
 
 ## Dashboard
-/workspaces/Retail-Sales-Analysis/PowerBI/Dashboard.png
+![Retail Dashboard](Images/dashboard.png)
 ---
 
 ## SQL Analysis
