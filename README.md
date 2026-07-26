@@ -84,7 +84,7 @@ Business Report
 ---
 
 ## Dashboard
-![Retail Dashboard](Images/dashboard.png)
+![Dashboard](Images/dashboard.png)
 ---
 
 ## SQL Analysis
