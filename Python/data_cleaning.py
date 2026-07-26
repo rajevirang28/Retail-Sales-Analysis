@@ -1,104 +1,111 @@
 import pandas as pd
 
-# ============================
-# Load Both Sheets
-# ============================
 
-file_path = r"Dataset/online_retail_II.xlsx"
+# Load Dataset
 
-df_2009 = pd.read_excel(file_path, sheet_name=0)
-df_2010 = pd.read_excel(file_path, sheet_name=1)
+file_path = "Dataset/online_retail_II.xlsx"
 
-print("2009-2010 Rows:", len(df_2009))
-print("2010-2011 Rows:", len(df_2010))
+df_2009 = pd.read_excel(file_path, sheet_name="Year 2009-2010")
+df_2010 = pd.read_excel(file_path, sheet_name="Year 2010-2011")
 
-# ============================
-# Merge Both Sheets
-# ============================
-
+# Merge both years
 df = pd.concat([df_2009, df_2010], ignore_index=True)
 
-print("Total Rows:", len(df))
 
-# ============================
+print("ORIGINAL DATASET")
+
+print("Rows:", len(df))
+
+
 # Remove Duplicate Rows
-# ============================
+
 
 duplicates = df.duplicated().sum()
-print("Duplicate Rows:", duplicates)
+print("\nDuplicate Rows:", duplicates)
 
 df = df.drop_duplicates()
 
-# ============================
+
+# Remove Missing Description
+
+
+missing_description = df["Description"].isna().sum()
+print("Missing Description:", missing_description)
+
+df = df.dropna(subset=["Description"])
+
 # Remove Cancelled Orders
-# Invoice starts with C
-# ============================
+
+
+cancelled = df["Invoice"].astype(str).str.startswith("C").sum()
+print("Cancelled Orders:", cancelled)
 
 df = df[~df["Invoice"].astype(str).str.startswith("C")]
 
-# ============================
+
 # Remove Invalid Quantity
-# ============================
+
+
+invalid_quantity = (df["Quantity"] <= 0).sum()
+print("Invalid Quantity:", invalid_quantity)
 
 df = df[df["Quantity"] > 0]
 
-# ============================
+
 # Remove Invalid Price
-# ============================
+
+
+invalid_price = (df["Price"] <= 0).sum()
+print("Invalid Price:", invalid_price)
 
 df = df[df["Price"] > 0]
 
-# ============================
+
 # Convert Date
-# ============================
+
 
 df["InvoiceDate"] = pd.to_datetime(df["InvoiceDate"])
 
-# ============================
 # Feature Engineering
-# ============================
+
 
 df["Total Sales"] = df["Quantity"] * df["Price"]
-
 df["Year"] = df["InvoiceDate"].dt.year
-
 df["Month"] = df["InvoiceDate"].dt.month_name()
-
 df["Month Number"] = df["InvoiceDate"].dt.month
-
 df["Quarter"] = "Q" + df["InvoiceDate"].dt.quarter.astype(str)
-
 df["Day"] = df["InvoiceDate"].dt.day
-
 df["Weekday"] = df["InvoiceDate"].dt.day_name()
-
 df["Hour"] = df["InvoiceDate"].dt.hour
 
-# ============================
-# Missing Customer ID
-# Keep It
-# ============================
 
-missing_customer = df["Customer ID"].isna().sum()
+# Final Report
 
-print("Missing Customer IDs:", missing_customer)
+print("CLEANED DATASET")
 
-# ============================
-# Final Shape
-# ============================
 
-print("\nFinal Dataset")
+print("Rows:", len(df))
+print("Columns:", len(df.columns))
 
-print(df.shape)
+print("\nMissing Values:")
+print(df.isnull().sum())
 
-# ============================
-# Export CSV
-# ============================
+df.rename(columns={
+    "Invoice": "invoice",
+    "StockCode": "stock_code",
+    "Description": "description",
+    "Quantity": "quantity",
+    "InvoiceDate": "invoice_date",
+    "Price": "price",
+    "Customer ID": "customer_id",
+    "Country": "country"
+}, inplace=True)
 
-output_file = "Dataset/retail_sales.csv"
+# Export
 
-df.to_csv(output_file, index=False)
+output_path = "Dataset/retail_sales.csv"
+
+df.to_csv(output_path, index=False)
 
 print("\nClean dataset saved successfully!")
-
-print(output_file)
+print(output_path)
