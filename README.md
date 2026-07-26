@@ -2,39 +2,41 @@
 
 ## Project Overview
 
-## Business Problem
+This project analyzes more than one million retail transactions to uncover sales trends, customer behavior, and product performance using Python, PostgreSQL, Excel, and Power BI.
 
-# Dataset
+---
 
-The original dataset (Online Retail II) is larger than GitHub's upload limit.
+## Tools Used
 
-You can download it from:
-https://archive.ics.uci.edu/dataset/502/online+retail+ii
-
-This project uses the cleaned version generated during the analysis.
-
-## Technology Used
-
-- SQL
 - Python
-- Excel
+- Pandas
+- PostgreSQL
 - Power BI
+- Excel
+
+---
+
+## Dataset
+
+Online Retail II Dataset (UCI)
+
+---
 
 ## Project Workflow
 
-Data Collection
+Raw Dataset
 
 ↓
 
-Data Cleaning
+Python Data Cleaning
 
 ↓
 
-SQL Analysis
+EDA
 
 ↓
 
-Python EDA
+PostgreSQL Analysis
 
 ↓
 
@@ -42,16 +44,40 @@ Power BI Dashboard
 
 ↓
 
-Business Insights
+Business Report
 
-## SQL Business Questions
+---
 
-## Python Analysis
+## KPIs
+
+- Total Revenue: $20,476,260.45
+- Total Orders: 40,079
+- Customers: 5,878
+- Products: 5,399
+
+---
 
 ## Dashboard
 
-## Key Insights
+(Add dashboard screenshot here)
 
-## Business Recommendations
+---
 
-## Future Improvements
+## SQL Analysis
+
+- Revenue Analysis
+- Customer Analysis
+- Product Analysis
+- Window Functions
+- CTEs
+- Ranking
+
+---
+
+## Project Structure
+
+```text
+Retail-Sales-Analysis/
+```
+
+---
