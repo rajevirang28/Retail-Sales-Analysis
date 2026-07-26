@@ -84,7 +84,7 @@ Business Report
 ---
 
 ## Dashboard
-
+PowerBI/Dashboard.png
 ---
 
 ## SQL Analysis
