@@ -59,8 +59,6 @@ Business Report
 
 ## Dashboard
 
-(Add dashboard screenshot here)
-
 ---
 
 ## SQL Analysis
@@ -71,13 +69,5 @@ Business Report
 - Window Functions
 - CTEs
 - Ranking
-
----
-
-## Project Structure
-
-```text
-Retail-Sales-Analysis/
-```
 
 ---
