@@ -16,9 +16,35 @@ This project analyzes more than one million retail transactions to uncover sales
 
 ---
 
-## Dataset
+# Dataset Information
 
-Online Retail II Dataset (UCI)
+Dataset Name: Online Retail II
+
+Source:
+https://archive.ics.uci.edu/dataset/502/online+retail+ii
+
+Original Columns:
+- Invoice
+- StockCode
+- Description
+- Quantity
+- InvoiceDate
+- Price
+- Customer ID
+- Country
+
+Generated Columns:
+- total_sales
+- year
+- month
+- month_number
+- quarter
+- day
+- weekday
+- hour
+
+Note:
+The cleaned dataset is not included because it exceeds GitHub's file size limit. Run `Python/data_cleaning.py` after downloading the original dataset to generate `retail_sales.csv`.
 
 ---
 
